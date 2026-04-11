@@ -14,13 +14,13 @@ start_time = 0
 end_time = 0
 total_time = 0
 
-number_of_sattelites = 0
+number_of_sattelites = 8
 
 def create_sattelites():
     global start_time
     for count in range(0,number_of_sattelites):
         sattelite = Actor("satellite")
-        sattelite.pos = randint(40, WIDTH - 40), randint(40, WIDTH - 40), randint(40, WIDTH - 40)
+        sattelite.pos = randint(40, WIDTH - 40), randint(40, HEIGHT - 40)
         sattelites.append(sattelite)
     start_time = time()
 
@@ -44,7 +44,7 @@ def draw():
         screen.draw.line(line[0], line[1], (255,255,255))
 
     if next_sattelite < number_of_sattelites:
-        total_time = time()
+        total_time = time() - start_time
 
     screen.draw.text(
         str(round(total_time, 1)),
