@@ -43,7 +43,7 @@ def remove_student():
     club_name = input("enter club name: ").lower()
 
     if club_name in clubs:
-        student_name = input("enter student name to remove").capitalize()
+        student_name = input("enter student name to remove: ").capitalize()
         
         if student_name in clubs[club_name]:
             clubs[club_name].remove(student_name)
@@ -57,7 +57,7 @@ def check_student():
     club_name = input("enter club name: ").lower()
 
     if club_name in clubs:
-        student_name = input("enter student name to check").capitalize()
+        student_name = input("enter student name to check: ").capitalize()
 
         if student_name in clubs[club_name]:
             print(student_name, "is a member of", club_name.capitalize(), "club")
@@ -90,6 +90,8 @@ def all_students_two_clubs():
         all_students = clubs[club1].union(clubs[club2])
 
         print(f"\nAll students in {club1.capitalize()} and {club2.capitalize()} clubs:")
+        for student in all_students:
+            print(student)
     
     else:
       print("one or both club names are invalid")
@@ -121,7 +123,7 @@ def students_in_exactly_one():
         if len(result) == 0:
             print("no such students found")
         else:
-            print(f"\nStudents in exactly one of {club1.capitalize()} or {club2.capitalize()} clubs:")
+            print(f"\nStudents who are in exactly one of the clubs {club1.capitalize()} or {club2.capitalize()}:")
             for student in result:
                 print(student)
     else:
@@ -159,3 +161,65 @@ def check_subset():
             print(f"{club1.capitalize()} club is not a subset of {club2.capitalize()} club")
     else:
         print("one or both club names are invalid")
+
+#Main Menu
+while True:
+    print("\n=========student club management system=========")
+    print("1. Display all clubs")
+    print("2. Display students of a club")
+    print("3. Add student to a club")
+    print("4. Remove student from a club")
+    print("5. Check whether student is in a club")
+    print("6. Show common students between two clubs")
+    print("7. Show all students from two clubs")
+    print("8. Show students only in the first club")
+    print("9. Show students in exactly one of two clubs")
+    print("10. Count students in a club")
+    print("11. Show all unique students in all clubs")
+    print("12. Check if one club is a subset of another")
+    print("13. Exit")
+
+    choice = int(input("enter your choice: "))
+
+    if choice == 1:
+        display_clubs()
+    
+    elif choice == 2:
+        display_students()
+    
+    elif choice == 3:
+        add_student()
+    
+    elif choice == 4:
+        remove_student()
+    
+    elif choice == 5:
+        check_student()
+    
+    elif choice == 6:
+        common_students()
+    
+    elif choice == 7:
+        all_students_two_clubs()
+    
+    elif choice == 8:
+        only_in_first_club()
+    
+    elif choice == 9:
+        students_in_exactly_one()
+    
+    elif choice == 10:
+        count_students()
+    
+    elif choice == 11:
+        all_unique_students()
+    
+    elif choice == 12:
+        check_subset()
+    
+    elif choice == 13:
+        print("exiting student club management system")
+        break
+    
+    else:
+        print("invalid choice. please enter a NUMBER between 1 and 13")
