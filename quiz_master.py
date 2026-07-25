@@ -16,7 +16,7 @@ skip_box = Rect(0,0,150,330)
 score = 0
 time_left = 20
 question_file_name = "questions.txt"
-marquee_box = ""
+marquee_message = ""
 is_game_over = False
 
 answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
@@ -98,7 +98,7 @@ def read_next_question():
     if question_index < len(questions):
         q = questions[question_index]
         question_index += 1
-        return q.spilt(",")
+        return q.split(",")
 
     else:
         game_over()
@@ -110,7 +110,7 @@ def on_mouse_down(pos):
     for box in answer_boxes:
         if box.collidepoint(pos):
             try:
-                correct_option = int(question[5].stop())
+                correct_option = int(question[5].strip())
             except:
                 correct_option = 0
         if index == correct_option:
@@ -166,7 +166,7 @@ def update_time_left():
 
 read_question_file()
 question = read_next_question()
-clock.shedule_interval(update_time_left,1)
+clock.schedule_interval(update_time_left,1)
 
 pgzrun.go()
 
