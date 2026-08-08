@@ -20,53 +20,53 @@ BUTTON = (70,130,180)
 
 words = [
     # A
-    "abode", "about", "above", "actor", "adult",
+    "ABODE", "ABOUT", "ABOVE", "ACTOR", "ADULT",
     # B
-    "basic", "beach", "brain", "brave", "bread",
+    "BASIC", "BEACH", "BRAIN", "BRAVE", "BREAD",
     # C
-    "cable", "catch", "chair", "chaos", "clean",
+    "CABLE", "CATCH", "CHAIR", "CHAOS", "CLEAN",
     # D
-    "dance", "delta", "demon", "depth", "draft",
+    "DANCE", "DELTA", "DEMON", "DEPTH", "DRAFT",
     # E
-    "eager", "early", "earth", "elbow", "entry",
+    "EAGER", "EARLY", "EARTH", "ELBOW", "ENTRY",
     # F
-    "faith", "flame", "flash", "focus", "frame",
+    "FAITH", "FLAME", "FLASH", "FOCUS", "FRAME",
     # G
-    "ghost", "giant", "glass", "globe", "grace",
+    "GHOST", "GIANT", "GLASS", "GLOBE", "GRACE",
     # H
-    "habit", "happy", "heart", "heavy", "house",
+    "HABIT", "HAPPY", "HEART", "HEAVY", "HOUSE",
     # I
-    "ideal", "image", "index", "inner", "input",
+    "IDEAL", "IMAGE", "INDEX", "INNER", "INPUT",
     # J
-    "jaunt", "jazzy", "jelly", "jewel", "judge",
+    "JAUNT", "JAZZY", "JELLY", "JEWEL", "JUDGE",
     # K
-    "karma", "kayak", "knife", "knock", "koala",
+    "KARMA", "KAYAK", "KNIFE", "KNOCK", "KOALA",
     # L
-    "label", "laser", "lemon", "light", "logic",
+    "LABEL", "LASER", "LEMON", "LIGHT", "LOGIC",
     # M
-    "magic", "major", "match", "media", "music",
+    "MAGIC", "MAJOR", "MATCH", "MEDIA", "MUSIC",
     # N
-    "nerve", "night", "ninja", "noble", "ocean",
+    "NERVE", "NIGHT", "NINJA", "NOBLE", "OCEAN",
     # O
-    "offer", "often", "olive", "order", "other",
+    "OFFER", "OFTEN", "OLIVE", "ORDER", "OTHER",
     # P
-    "paper", "party", "pause", "peace", "phone",
+    "PAPER", "PARTY", "PAUSE", "PEACE", "PHONE",
     # Q
-    "quake", "queen", "query", "quest", "quick",
+    "QUAKE", "QUEEN", "QUERY", "QUEST", "QUICK",
     # R
-    "radar", "radio", "reach", "relax", "river",
+    "RADAR", "RADIO", "REACH", "RELAX", "RIVER",
     # S
-    "scale", "scene", "scope", "share", "smart",
+    "SCALE", "SCENE", "SCOPE", "SHARE", "SMART",
     # T
-    "table", "taste", "tiger", "title", "train",
+    "TABLE", "TASTE", "TIGER", "TITLE", "TRAIN",
     # U
-    "uncle", "under", "unify", "union", "urban",
+    "UNCLE", "UNDER", "UNIFY", "UNION", "URBAN",
     # V
-    "vague", "valid", "value", "video", "voice",
+    "VAGUE", "VALID", "VALUE", "VIDEO", "VOICE",
     # W
-    "water", "wheel", "where", "world", "write",
+    "WATER", "WHEEL", "WHERE", "WORLD", "WRITE",
     # Y
-    "yacht", "yearn", "yeast", "yield", "young"
+    "YACHT", "YEARN", "YEAST", "YIELD", "YOUNG"
 ]
 game_state = "start"
 
@@ -90,7 +90,7 @@ play_again_button = Rect((150,680),(200,50))
 
 keyboard_layout = [list("QWERTYUIOP"),
                    list("ASDFGHJKL"),
-                   ["ENTER"] + list("ZXCVNM") + ["BACK"]
+                   ["ENTER"] + list("ZXCVBNM") + ["BACK"]
 ]
 
 key_rects = []
@@ -153,7 +153,7 @@ def draw():
             
         if game_state == "gameover":
             screen.draw.filled_rect(play_again_button, BUTTON)
-            screen.draw.text("PLAY AGAIN, center = play_again_button.center, fontsize = 25, color = WHITE")
+            screen.draw.text("PLAY AGAIN", center = play_again_button.center, fontsize = 25, color = "WHITE")
             
             
 
@@ -222,7 +222,7 @@ def check_word():
             if guess[i] in secret_list:
                 colors[current_row][i] = YELLOW
                 secret_list[secret_list.index(guess[i])] = None
-                update_key_color(guess[i]. DARK_GRAY)
+                update_key_color(guess[i], DARK_GRAY)
 
     if guess == secret_word:
         message = "YOU WON!"
